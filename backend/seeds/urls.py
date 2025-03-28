@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 
 from . import views
 
@@ -7,5 +7,6 @@ app_name = 'seeds'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('seeds/<slug:type>/<slug:variety>/', views.seed_variety, name='seed'),
+    path('seeds/', views.seeds, name='seeds'),
+    path('seeds/<slug:type>/<slug:name>/', views.seed_name, name='seed'),
 ]

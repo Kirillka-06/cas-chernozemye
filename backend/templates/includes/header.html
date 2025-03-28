@@ -1,0 +1,29 @@
+{% load static %} 
+
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    {% url 'seeds:index' as index %}
+    {% url 'seeds:seeds' as seeds %}
+    {% url 'about:about' as about %}
+    <a class="navbar-brand justify-content-center text-success" href="{{ index }}">
+      {% if request.path == index %}
+        <img src="{% static '/img/logo2.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      {% else %}
+        <img src="{% static '/img/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      {% endif %}
+      ЦАС Черноземье
+    </a>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == seeds %}active{% endif %} text-success" aria-current="page" href="{{ seeds }}">Каталог семян</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == about %}active{% endif %} text-success" href="{{ about }}">О компании</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

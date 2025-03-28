@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <nav class="navbar navbar-fixed-top">
+          <span class="navbar-text">
+            <a type="submit" class="btn btn-outline-success" href="{{ referer }}">Вернуться</a>
+          </span>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <a type="button" class="btn btn-close" aria-label="Close" href="{{ referer }}"></a>
+            </li>
+          </ul>
+        </nav>
+        <div class="row mb-3 mt-3">
+          <div class="col">
+            <div class="card border-success-subtle">
+              {% thumbnail seed.image "500x500" crop="center" upscale=True as im %}
+								<img class="card-img " src="{{ im.url }}">
+							{% endthumbnail %}
+            </div>
+          </div>
+          <div class="col">
+            <h1>{{ seed.name }}</h1>
+            <p>{{ seed.description }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+{% endblock content %} 

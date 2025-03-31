@@ -1,29 +1,36 @@
 {% load static %} 
 
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    {% url 'seeds:index' as index %}
-    {% url 'seeds:seeds' as seeds %}
-    {% url 'about:about' as about %}
-    <a class="navbar-brand justify-content-center text-success" href="{{ index }}">
-      {% if request.path == index %}
-        <img src="{% static '/img/logo2.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      {% else %}
-        <img src="{% static '/img/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      {% endif %}
-      ЦАС Черноземье
-    </a>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+{% url 'seeds:index' as index %}
+{% url 'seeds:seeds' as seeds %}
+{% url 'about:about' as about %}
 
-      <ul class="nav nav-underline">
-        <li class="nav-item">
-          <a class="nav-link {% if request.path == seeds %}active{% endif %} text-success" aria-current="page" href="{{ seeds }}">Каталог семян</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if request.path == about %}active{% endif %} text-success" href="{{ about }}">О компании</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand  text-success" href="{{ index }}">
+					{% if request.path == index %}
+						<img src="{% static '/img/logo2.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+					{% else %}
+						<img src="{% static '/img/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+					{% endif %}
+					ЦАС Черноземье
+				</a>
+			</nav>
+		</div>
+		<div class="col">
+			<nav class="navbar navbar-expand-lg">
+				<ul class="nav nav-underline justify-content-center w-100">
+					<li class="nav-item">
+						<a class="nav-link {% if request.path == seeds %}active{% endif %} text-success" aria-current="page" href="{{ seeds }}">Каталог</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if request.path == about %}active{% endif %} text-success" href="{{ about }}">Компания</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col"></div>
+	</div>
+</div>

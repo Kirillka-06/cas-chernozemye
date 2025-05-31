@@ -4,7 +4,7 @@ from django.db import models
 class Type(models.Model):
     name = models.CharField(max_length=200)
     translit = models.CharField(max_length=200)
-    #image = models.ImageField('Картинка', upload_to='seeds/', blank=True)
+    #image = models.ImageField('Картинка', upload_to='types/', blank=True)
 
     def __str__(self):
         return self.name

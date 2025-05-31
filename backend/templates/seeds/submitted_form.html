@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <nav class="navbar navbar-fixed-top">
+        <a type="button" class="btn btn-outline-success" href="{{ referer }}">Вернуться</a>
+      </nav>
+      <div class="container-fluid vh-100">
+        {% comment %} <div class="position-relative">
+          <div class="position-relative top-50 start-50 translate-middle">
+            <div class="card text-center mb-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+        <div class="card text-center mx-auto border-success" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Вы успешно отправили форму</h5>
+            <p class="card-text">Пока думаю как заменить</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+{% endblock content %}
